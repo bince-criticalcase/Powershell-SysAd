@@ -138,7 +138,7 @@ function Show-ActiveDirectoryMenu {
     
         #Expiry
         #[DateTime]::FromFileTime( $user.'msDS-UserPasswordExpiryTimeComputed' )
-        $user = Get-ADUser wyldeja -Properties msDS-UserPasswordExpiryTimeComputed
+        $user = Get-ADUser $ResultUser -Properties msDS-UserPasswordExpiryTimeComputed
         $userCredExpiryDate = [DateTime]::FromFileTime( $user.'msDS-UserPasswordExpiryTimeComputed' )
         Write-Output "Password Expires:"$userCredExpiryDate
     
