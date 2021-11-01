@@ -106,7 +106,7 @@ function Show-ActiveDirectoryMenu {
         Get-ADUser $ResultUser -Properties Name,Title,EmailAddress,MobilePhone,Enabled,LockedOut,BadLogonCount,Manager | Select-Object Name,Title,EmailAddress,MobilePhone,Enabled,LockedOut,BadLogonCount,Manager | Format-List
         
     
-                $Resultuser = Get-ADUser wyldeja -Properties msDS-UserPasswordExpiryTimeComputed
+                $Resultuser = Get-ADUser $ResultUser -Properties msDS-UserPasswordExpiryTimeComputed
                 $userCredExpiryDate = [DateTime]::FromFileTime( $Resultuser.'msDS-UserPasswordExpiryTimeComputed' )
                 Write-Output "Password Expires: $userCredExpiryDate"
 
